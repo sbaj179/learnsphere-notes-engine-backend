@@ -86,8 +86,8 @@ function providerConfig(provider) {
     return {
       provider,
       kind: "openai",
-      configured: Boolean(process.env.SAMBANOVA_API_KEY),
-      apiKey: process.env.SAMBANOVA_API_KEY,
+      configured: Boolean(process.env.SAMBANOVA_API_KEY || process.env.LEARNSPHERE_AI_SAMBANOVA_API_KEY),
+      apiKey: process.env.SAMBANOVA_API_KEY || process.env.LEARNSPHERE_AI_SAMBANOVA_API_KEY,
       baseUrl: process.env.SAMBANOVA_BASE_URL || "https://api.sambanova.ai/v1",
       model: process.env.SAMBANOVA_MODEL || "Meta-Llama-3.1-8B-Instruct"
     };
@@ -97,8 +97,8 @@ function providerConfig(provider) {
     return {
       provider,
       kind: "openai",
-      configured: Boolean(process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY),
-      apiKey: process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY,
+      configured: Boolean(process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY || process.env.LEARNSPHERE_AI_NVIDIA_NIM_API_KEY),
+      apiKey: process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY || process.env.LEARNSPHERE_AI_NVIDIA_NIM_API_KEY,
       baseUrl: process.env.NVIDIA_NIM_BASE_URL || "https://integrate.api.nvidia.com/v1",
       model: process.env.NVIDIA_NIM_MODEL || "meta/llama-3.1-8b-instruct"
     };
@@ -108,8 +108,8 @@ function providerConfig(provider) {
     return {
       provider,
       kind: "openai",
-      configured: Boolean(process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY),
-      apiKey: process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY,
+      configured: Boolean(process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY || process.env.LEARNSPHERE_AI_SCALEWAY_API_KEY),
+      apiKey: process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY || process.env.LEARNSPHERE_AI_SCALEWAY_API_KEY,
       baseUrl: process.env.SCALEWAY_BASE_URL || "https://api.scaleway.ai/v1",
       model: process.env.SCALEWAY_MODEL || "llama-3.1-8b-instruct"
     };
@@ -119,20 +119,20 @@ function providerConfig(provider) {
     return {
       provider,
       kind: "cohere",
-      configured: Boolean(process.env.COHERE_API_KEY),
-      apiKey: process.env.COHERE_API_KEY,
+      configured: Boolean(process.env.COHERE_API_KEY || process.env.LEARNSPHERE_AI_COHERE_API_KEY),
+      apiKey: process.env.COHERE_API_KEY || process.env.LEARNSPHERE_AI_COHERE_API_KEY,
       baseUrl: process.env.COHERE_BASE_URL || "https://api.cohere.com/v2",
       model: process.env.COHERE_MODEL || "command-a-plus-05-2026"
     };
   }
 
   if (provider === "cloudflare_workers_ai") {
-    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || process.env.LEARNSPHERE_AI_CLOUDFLARE_ACCOUNT_ID;
     return {
       provider,
       kind: "openai",
-      configured: Boolean(accountId && process.env.CLOUDFLARE_API_TOKEN),
-      apiKey: process.env.CLOUDFLARE_API_TOKEN,
+      configured: Boolean(accountId && (process.env.CLOUDFLARE_API_TOKEN || process.env.LEARNSPHERE_AI_CLOUDFLARE_API_TOKEN)),
+      apiKey: process.env.CLOUDFLARE_API_TOKEN || process.env.LEARNSPHERE_AI_CLOUDFLARE_API_TOKEN,
       baseUrl:
         process.env.CLOUDFLARE_WORKERS_AI_BASE_URL ||
         `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/v1`,
