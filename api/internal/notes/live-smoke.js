@@ -12,6 +12,7 @@ module.exports = function handler(req, res) {
   }
 
   const required = process.env.NOTES_ENGINE_SERVICE_TOKEN;
+
   if (required && readBearer(req) !== required) {
     return res.status(401).json({
       ok: false,
@@ -19,11 +20,11 @@ module.exports = function handler(req, res) {
     });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     ok: true,
-    service: "learnsphere-notes-engine-standalone",
+    service: "learnsphere-notes-engine-backend",
     route: "/api/internal/notes/live-smoke",
-    mode: "contract-smoke-only",
+    mode: "backend-contract-smoke",
     mutation: false,
     paidGeneration: false,
     timestamp: new Date().toISOString()

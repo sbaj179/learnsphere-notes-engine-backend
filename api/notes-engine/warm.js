@@ -1,8 +1,9 @@
 ﻿module.exports = function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
-  res.status(200).json({
+
+  return res.status(200).json({
     ok: true,
-    service: "learnsphere-notes-engine-standalone",
+    service: "learnsphere-notes-engine-backend",
     route: "/api/notes-engine/warm",
     method: req.method,
     ready: true,

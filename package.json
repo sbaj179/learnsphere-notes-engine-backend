@@ -1,5 +1,5 @@
 ﻿{
-  "name": "learnsphere-notes-engine-standalone",
+  "name": "learnsphere-notes-engine-backend",
   "version": "1.0.0",
   "private": true,
   "engines": {

@@ -6,15 +6,15 @@
     return res.status(405).json({ ok: false, error: "Method not allowed." });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     ok: true,
-    service: "learnsphere-notes-engine-standalone",
+    service: "learnsphere-notes-engine-backend",
     route: "/api/admin/notes-engine/status",
     ready: true,
     environment: {
-      serviceTokenConfigured: Boolean(process.env.NOTES_ENGINE_SERVICE_TOKEN),
+      notesEngineTokenConfigured: Boolean(process.env.NOTES_ENGINE_SERVICE_TOKEN),
       providerOrderConfigured: Boolean(process.env.LEARNSPHERE_AI_PROVIDER_ORDER),
-      storageRootConfigured: Boolean(process.env.LEARNSPHERE_TOPIC_STORAGE_ROOT)
+      supabaseConfigured: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY)
     },
     timestamp: new Date().toISOString()
   });
