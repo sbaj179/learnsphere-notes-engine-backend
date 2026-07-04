@@ -4,5 +4,8 @@
   "private": true,
   "engines": {
     "node": "20.x"
+  },
+  "scripts": {
+    "build": "node -e \"console.log('No build required for LearnSphere notes engine backend')\""
   }
 }
