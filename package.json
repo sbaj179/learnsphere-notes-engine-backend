@@ -1,11 +1,11 @@
-﻿{
-    "name":  "learnsphere-notes-engine-backend",
-    "version":  "1.0.0",
-    "private":  true,
-    "engines":  {
-                    "node":  "24.x"
-                },
-    "scripts":  {
-                    "build":  "node -e \"console.log(\u0027No build required for LearnSphere notes engine backend\u0027)\""
-                }
+{
+  "name": "learnsphere-notes-engine-backend",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node -e \"console.log('No build required for LearnSphere notes engine backend')\""
+  }
 }
