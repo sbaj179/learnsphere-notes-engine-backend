@@ -10,12 +10,12 @@
     .filter(Boolean);
 
   const configuredProviders = providerOrder.filter((provider) => {
-    if (provider === "sambanova") return Boolean(process.env.SAMBANOVA_API_KEY);
-    if (provider === "nvidia_nim") return Boolean(process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY);
-    if (provider === "scaleway") return Boolean(process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY);
-    if (provider === "cohere") return Boolean(process.env.COHERE_API_KEY);
+    if (provider === "sambanova") return Boolean(process.env.SAMBANOVA_API_KEY || process.env.LEARNSPHERE_AI_SAMBANOVA_API_KEY);
+    if (provider === "nvidia_nim") return Boolean(process.env.NVIDIA_NIM_API_KEY || process.env.NVIDIA_API_KEY || process.env.LEARNSPHERE_AI_NVIDIA_NIM_API_KEY);
+    if (provider === "scaleway") return Boolean(process.env.SCALEWAY_API_KEY || process.env.SCW_SECRET_KEY || process.env.LEARNSPHERE_AI_SCALEWAY_API_KEY);
+    if (provider === "cohere") return Boolean(process.env.COHERE_API_KEY || process.env.LEARNSPHERE_AI_COHERE_API_KEY);
     if (provider === "cloudflare_workers_ai") {
-      return Boolean(process.env.CLOUDFLARE_ACCOUNT_ID && process.env.CLOUDFLARE_API_TOKEN);
+      return Boolean((process.env.CLOUDFLARE_ACCOUNT_ID || process.env.LEARNSPHERE_AI_CLOUDFLARE_ACCOUNT_ID) && (process.env.CLOUDFLARE_API_TOKEN || process.env.LEARNSPHERE_AI_CLOUDFLARE_API_TOKEN));
     }
     return false;
   });
